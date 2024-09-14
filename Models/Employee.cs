@@ -6,26 +6,26 @@ public class Employee
     public int EmployeeId { get; set; }
 
     //Name
-    public string? EmployeeFirstName { get; set; }
-    public string? EmployeeMiddleName { get; set; }
-    public string? EmployeeLastName { get; set; }
+    public string? FirstName { get; set; }
+    public string? MiddleName { get; set; }
+    public string? LastName { get; set; }
 
     //Birthday
-    public int EmployeeBirthMonth { get; set; }
-    public int EmployeeBirthDay { get; set; }
-    public int EmployeeBirthYear { get; set; }
+    public int BirthDay { get; set; }
+    public int BirthMonth { get; set; }
+    public int BirthYear { get; set; }
 
     //Age
-    public int EmployeeAge { get; set; }
+    public int Age { get; set; }
 
     //Contact
-    public int EmployeePhoneNumber { get; set; }
-    public string? EmployeeEmailAddress { get; set; }
-    public string? EmployeeHomeAddress { get; set; }
+    public string PhoneNumber { get; set; }
+    public string? EmailAddress { get; set; }
+    public string? HomeAddress { get; set; }
 
     //Current Position
     public string? EmployeeDepartment { get; set; }
     public int EmployeeTitle { get; set; }
-    public int EmployeePayRate { get; set; }
-    public int EmployeeHours { get; set; }
+    public int PayRate { get; set; }
+    public int HoursWorked { get; set; }
 }

@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Employee>
+
+<h2>Employee</h2>
+
+<div style="display: block">
+    <a href="/Employee/Index/">View Employee</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Birth Month</th>
+        <th>Birth Day</th>
+        <th>Birth Year</th>
+        <th>Age</th>
+        <th>Phone Number</th>
+        <th>Email Address</th>
+        <th>Home Address</th>
+        <th>Pay Rate</th>
+        <th>Employee Department</th>
+        <th>Hours Worked</th>
+    </tr>
+
+    @foreach (var employeesInList in Model)
+    {
+        <tr>
+            <td>
+                <a href=/Employee/Index/@employeesInList.EmployeeId>@employeesInList.EmployeeId</a>
+            </td>
+            <td>@employeesInList.FirstName</td>
+            <td>@employeesInList.MiddleName</td>
+            <td>@employeesInList.LastName</td>
+            <td>@employeesInList.BirthMonth</td>
+            <td>@employeesInList.BirthDay</td>
+            <td>@employeesInList.BirthYear</td>
+            <td>@employeesInList.Age</td>
+            <td>@employeesInList.PhoneNumber</td>
+            <td>@employeesInList.EmailAddress</td>
+            <td>@employeesInList.HomeAddress</td>
+            <td>@employeesInList.PayRate</td>
+            <td>@employeesInList.EmployeeDepartment</td>
+            <td>@employeesInList.HoursWorked</td>
+        </tr>
+    }
+</table>

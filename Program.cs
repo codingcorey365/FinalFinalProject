@@ -17,7 +17,7 @@ namespace FinalFinalProject
 
             builder.Services.AddScoped<IDbConnection>((s) =>
             {
-                IDbConnection connection = new MySqlConnection(builder.Configuration.GetConnectionString("finalproject"));
+                IDbConnection connection = new MySqlConnection(builder.Configuration.GetConnectionString("DefaultConnection"));
                 connection.Open();
                 return connection;
             });
