@@ -17,36 +17,47 @@ public class EmployeeRepository : IEmployeeRepository
     {
         _connection = connection;
     }
+
+
+    /*--- CRUD OPERATIONS ---*/
+    
+    /*--- CREATE ---*/
     public void CreateEmployee(Employee employeeToInsert)
     {
          _connection.Execute("INSERT INTO employees (FirstName, MiddleName, LastName) VALUES (@FirstName, @MiddleName, @LastName);", new {   firstname = employeeToInsert.FirstName, middlename = employeeToInsert.MiddleName, lastname = employeeToInsert.LastName});
     }
 
-    
-
-    //public void DeleteEmployee(int productID)
-    //{
-    //    throw new NotImplementedException();
-    //}
-
+    /*--- READ ---*/
     public IEnumerable<Employee> GetAllEmployees()
     {
         return _connection.Query<Employee>("SELECT * FROM employees;");
     }
+
     public Employee GetEmployeeById(int id)
     {
         
         return _connection.QuerySingle<Employee>("SELECT * FROM employees where EmployeeId = @id", new { id =id });
     }
 
-    //public void UpdateEmployee(int productID, string updatedName)
-    //{
-    //    throw new NotImplementedException();
-    //}
 
-    //public void UpdateEmployeeName(int employeeId, string updatedName)
-    //{
-    //    _connection.Execute("Update employee set Name = @name where employeeId = @employeeId",
-    //        new { name = updatedName, employeeId = employeeId });
-    //}
+    /*--- UPDATE ---*/
+
+    public void UpdateEmployee(int productID, string updatedName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateEmployeeName(int employeeId, string updatedName)
+    {
+        _connection.Execute("Update employee set Name = @name where employeeId = @employeeId",
+            new { name = updatedName, employeeId = employeeId });
+    }
+
+
+    /*--- DELETE ---*/
+
+    public void DeleteEmployee(Employee employee)
+    {
+        _connection.Execute("DELETE FROM EMPLOYEES WHERE EmployeeId = @id;", new { id = employee.EmployeeId });
+    }
 }

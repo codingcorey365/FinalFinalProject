@@ -40,11 +40,11 @@
     <a href="/Employee/UpdateEmployee/@Model.EmployeeId">Update this Employee</a>
 </div>
 
-@* <div style="display: block">
+<div style="display: block">
 
-    @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
+    @using (Html.BeginForm("DeleteProduct", "Employee", "Post"))
     {
         <input type="hidden" asp-for="EmployeeId" value="@Model.EmployeeID" />
         <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
     }
-</div> *@
+</div>
