@@ -1,7 +1,7 @@
-﻿using FinalFinalProject.Models;
-using System.Data;
-using Dapper;
+﻿using Dapper;
 using FinalFinalProject.Interfaces;
+using FinalFinalProject.Models;
+using System.Data;
 
 namespace FinalFinalProject.Repositories;
 
@@ -17,11 +17,12 @@ public class EmployeeRepository : IEmployeeRepository
     {
         _connection = connection;
     }
-    //public void CreateEmployee(int employeeID, string firstName, string lastName)
-    //{
-    //    _connection.Execute(
-    //        "INSERT INTO employees (EmployeeID, FirstName, LastName) VALUES ('2', 'Tyson', 'Lind');");
-    //}
+    public void CreateEmployee(Employee employeeToInsert)
+    {
+         _connection.Execute("INSERT INTO employees (FirstName, MiddleName, LastName) VALUES (@FirstName, @MiddleName, @LastName);", new {   firstname = employeeToInsert.FirstName, middlename = employeeToInsert.MiddleName, lastname = employeeToInsert.LastName});
+    }
+
+    
 
     //public void DeleteEmployee(int productID)
     //{
@@ -31,6 +32,11 @@ public class EmployeeRepository : IEmployeeRepository
     public IEnumerable<Employee> GetAllEmployees()
     {
         return _connection.Query<Employee>("SELECT * FROM employees;");
+    }
+    public Employee GetEmployeeById(int id)
+    {
+        
+        return _connection.QuerySingle<Employee>("SELECT * FROM employees where EmployeeId = @id", new { id =id });
     }
 
     //public void UpdateEmployee(int productID, string updatedName)
